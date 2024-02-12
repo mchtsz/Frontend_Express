@@ -31,7 +31,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(session({
     secret: "secretSomBørLagresIEnMiljøvariabel",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    sameSite: "Lax",
+    cookie: {
+        secure: false
+    }
 }));
 
 
@@ -63,8 +67,8 @@ app.get("/", (req, res) => {
 
 
 //Starter sørveren på port 3000
-app.listen(3069, () => {
-    console.log('Server is running on port 3069');
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
 })
 
 
